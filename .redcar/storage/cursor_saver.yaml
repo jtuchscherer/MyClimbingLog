@@ -1,0 +1,18 @@
+--- 
+cursor_positions: 
+  - :path: config/routes.rb
+    :cursor_offset: 510
+    :timestamp: 2012-03-01 17:14:50 -07:00
+  - :path: app/models/gym.rb
+    :cursor_offset: 110
+    :timestamp: 2012-03-09 15:05:07 -07:00
+  - :path: app/models/route.rb
+    :cursor_offset: 51
+    :timestamp: 2012-03-09 15:00:28 -07:00
+  - :path: app/models/area.rb
+    :cursor_offset: 94
+    :timestamp: 2012-03-09 15:01:16 -07:00
+  - :path: db/migrate/20120309223234_create_relationship_between_gym_area_and_route.rb
+    :cursor_offset: 259
+    :timestamp: 2012-03-09 15:37:09 -07:00
+files_to_retain: 0
