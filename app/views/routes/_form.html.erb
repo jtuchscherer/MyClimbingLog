@@ -21,7 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :area_id %><br />
-    <%= collection_select(:route, :area_id, Area.all, :id, :name) %>  
+    <%= collection_select(:route, :area_id, Area.where(:gym_id => @gym), :id, :name) %>  
+  </div>
+  <div class="field">
+    <%= f.label :rating_id %><br />
+    <%= collection_select(:route, :rating_id, Rating.where(:gym_id => @gym), :id, :name) %>  
   </div>
   <div class="actions">
     <%= f.submit %>

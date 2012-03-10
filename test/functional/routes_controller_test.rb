@@ -3,6 +3,7 @@ require 'test_helper'
 class RoutesControllerTest < ActionController::TestCase
   setup do
     @route = routes(:one)
+    @gym = gyms(:one)
   end
 
   test "should get index" do
@@ -11,9 +12,14 @@ class RoutesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:routes)
   end
 
-  test "should get new" do
-    get :new
+  test "should get new when gym_id specified" do
+    get :new, gym_id: @gym
     assert_response :success
+  end
+  
+  test "should throw exception when no gym_id specified" do
+    get :new
+    assert_response 302
   end
 
   test "should create route" do

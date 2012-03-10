@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  gym: one
+  ordinal_value: 1
   name: MyString
   description: MyText
-  gym: one
 
 two:
+  gym: two
+  ordinal_value: 1
   name: MyString
   description: MyText
-  gym: two

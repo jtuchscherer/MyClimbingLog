@@ -15,6 +15,8 @@
   <%= @gym.address %>
 </p>
 
-
+<%= link_to 'Show Ratings', ratings_path(gym_id: @gym) %> | 
+<%= link_to 'Show Routes', routes_path(gym_id: @gym) %> |
+<%= link_to 'New Route', new_route_path(gym_id: @gym) %> | 
 <%= link_to 'Edit', edit_gym_path(@gym) %> |
 <%= link_to 'Back', gyms_path %>

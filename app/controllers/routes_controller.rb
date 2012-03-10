@@ -24,11 +24,18 @@ class RoutesController < ApplicationController
   # GET /routes/new
   # GET /routes/new.json
   def new
-    @route = Route.new
+    begin
+      @gym = Gym.find(params[:gym_id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to create route without specifying a valid gym id #{params[:gym_id]}"
+      redirect_to routes_url, notice: 'Not able to create route'
+    else
+      @route = Route.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @route }
+      respond_to do |format|
+        format.html {@current_gym = @gym }# new.html.erb
+        format.json { render json: @route }
+      end
     end
   end
 

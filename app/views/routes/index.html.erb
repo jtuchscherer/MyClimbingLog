@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Listing routes</h1>
 
 <table>
@@ -6,6 +8,7 @@
     <th>Description</th>
     <th>Area</th>
     <th>Gym</th>
+    <th>Difficulty</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +20,7 @@
     <td><%= route.description %></td>
     <td><%= link_to route.area.name, route.area %></td>
     <td><%= link_to route.area.gym.name, route.area.gym %></td>
+    <td><%= link_to route.rating.name, route.rating %></td>
     <td><%= link_to 'Show', route %></td>
     <td><%= link_to 'Edit', edit_route_path(route) %></td>
     <td><%= link_to 'Destroy', route, confirm: 'Are you sure?', method: :delete %></td>
@@ -25,5 +29,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Route', new_route_path %>

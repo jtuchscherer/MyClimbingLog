@@ -12,7 +12,12 @@
 
 <p>
   <b>Area:</b>
-  <%= @route.area.name %>
+  <%= @route.area.name %> at the <%= @route.area.gym.name %>
+</p>
+
+<p>
+  <b>Difficulty:</b>
+  <%= @route.rating.name %>
 </p>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |

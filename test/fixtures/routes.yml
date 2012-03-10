@@ -3,7 +3,11 @@
 one:
   title: MyString
   description: MyText
+  area: one
+  rating: one
 
 two:
   title: MyString
   description: MyText
+  area: two
+  rating: two
