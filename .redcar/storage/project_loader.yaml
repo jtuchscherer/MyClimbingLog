@@ -1,7 +1,0 @@
---- 
-open_files: 
-  - config/routes.rb
-  - app/models/gym.rb
-  - app/models/route.rb
-  - app/models/area.rb
-  - db/migrate/20120309223234_create_relationship_between_gym_area_and_route.rb
