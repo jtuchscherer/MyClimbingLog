@@ -7,8 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div id="banner">
+    <%= image_tag("logo.png") %>
+    <%= @page_title || "My Boulder Log" %>
+    <span id="login"><a href="#">Sign In</a> | <a href="#">Sign Up</a></span>
+  </div>
+  <div id="columns">
+    <div id="navBar">
+      <ul>
+        <li><a href="#">Comment on Routes</a></li>
+        <li><a href="#">Log Climbing Session</a></li>
+        <li><a href="#">My Account</a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
+  <div id="footer">
+    Created by Johannes Tuchscherer  
+  </div>
 
 </body>
 </html>
