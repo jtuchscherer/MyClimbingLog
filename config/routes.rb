@@ -1,5 +1,7 @@
 Myboulderlog::Application.routes.draw do
-  get "climbing_log/index", as: 'climbing_log'
+  resources :users
+
+  match "climbing_log/index", as: 'climbing_log', :via => [:get, :post]
   post "climbing_log/save", as: 'save_climbing_log'
 
   resources :ratings

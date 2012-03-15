@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Myboulderlog::Application.config.secret_token = '6255cc851bd473c2b9b8cdc811632cb981123e8e9783c672806073e70cec271909d18655760c744e13705e887379e99c4cdbafa1d9c333a2f5d8d0960e4a549f'
+Myboulderlog::Application.config.secret_token = '2427c15a41fb42c96ac68f5b19e9118ba0287dae8eda668ab3be3a1a3f00eda253ef3c4b9a3f68b5d7f236f69adc6b8610aa3e341be788eb4e19c237a2593de5'
