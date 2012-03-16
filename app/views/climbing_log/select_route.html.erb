@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Difficulty</th>
+  </tr>
+
+<% @area.routes.each do |route| %>
+  <tr>
+    <td><%= link_to route.title, rate_climbing_log_path(:route_id => route.id) %></td>
+    <td><%= route.description %></td>
+    <td><%= route.rating.name %></td>
+  </tr>
+<% end %>
+</table>

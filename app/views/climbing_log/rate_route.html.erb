@@ -1,0 +1,15 @@
+<h1>Rate the Routes</h1>
+
+<div>
+  <h2><%= @route.title %></h2>
+  <span><%= @route.description %></span>
+  <%= form_tag save_climbing_log_path, class: 'route_comment' do %>
+  <%= label_tag 'suggested_rating_id', 'You would rate this route at:' %><br/>
+    <%= select_tag 'area_id', 
+      options_from_collection_for_select(@route.area.gym.ratings, "id", "name"),
+      :prompt => "Select a rating" %><br/>
+    <%= label_tag 'comment', 'Leave your comment or beta:' %><br/>
+    <%= text_area_tag 'comment', nil, :rows => 10, :cols => 25%><br/> 
+    <%= submit_tag 'submit' %>
+  <% end %>
+</div>

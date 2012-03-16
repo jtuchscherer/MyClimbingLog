@@ -8,7 +8,10 @@ Myboulderlog::Application.routes.draw do
   
   resources :users
 
-  match "climbing_log/index", as: 'climbing_log', :via => [:get, :post]
+  match "climbing_log/select_gym", as: 'climbing_log', :via => [:get]
+  match "climbing_log/select_area", as: 'area_climbing_log', :via => [:post]
+  match "climbing_log/select_route", as: 'route_climbing_log', :via => [:post]
+  match "climbing_log/rate_route", as: 'rate_climbing_log', :via => [:get]
   post "climbing_log/save", as: 'save_climbing_log'
 
   resources :ratings
@@ -68,7 +71,7 @@ Myboulderlog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: 'climbing_log#index'
+  root to: 'climbing_log#select_gym'
 
   # See how all your routes lay out with "rake routes"
 

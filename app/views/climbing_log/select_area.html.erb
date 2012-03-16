@@ -1,0 +1,9 @@
+<%= form_tag route_climbing_log_path, class: 'area_select' do %>
+  <%= hidden_field_tag 'gym_id', @gym.id %>
+  <%= select_tag 'area_id', 
+      options_from_collection_for_select(@gym.areas, "id", "name"),
+      :prompt => "Select an area",
+      onchange: 'this.form.submit()' %>
+  <%= submit_tag 'submit' %>
+  <%= javascript_tag "$('.area_select input').hide()" %>
+<% end %>
