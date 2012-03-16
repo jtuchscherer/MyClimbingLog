@@ -1,4 +1,6 @@
 class ClimbingLogController < ApplicationController
+  skip_before_filter :authorize
+  
   def index
     if params[:gym_id] 
       @gym = Gym.find(params[:gym_id])

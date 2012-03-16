@@ -1,4 +1,11 @@
 Myboulderlog::Application.routes.draw do
+  
+  controller :session do
+    get  'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  
   resources :users
 
   match "climbing_log/index", as: 'climbing_log', :via => [:get, :post]

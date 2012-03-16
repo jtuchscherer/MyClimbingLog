@@ -10,7 +10,13 @@
   <div id="banner">
     <%= image_tag("logo.png") %>
     <%= @page_title || "My Boulder Log" %>
-    <span id="login"><a href="#">Sign In</a> | <a href="#">Sign Up</a></span>
+    <span id="login">
+    <% if session[:user_id] %>
+      <%= link_to 'Log Out', logout_path, method: :delete %>
+    <% elsif %>
+      <%= link_to 'Sign In', login_path %> | <%= link_to 'Sign Up', new_user_path %>
+    <% end %>
+    </span>
   </div>
   <div id="columns">
     <div id="navBar">
