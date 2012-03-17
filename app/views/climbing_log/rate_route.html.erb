@@ -1,15 +1,31 @@
+<% if @user_feedback && @user_feedback.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user_feedback.errors.count, "error") %> prohibited this feedback from being saved:</h2>
+
+    <ul>
+    <% @user_feedback.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Rate the Routes</h1>
 
 <div>
   <h2><%= @route.title %></h2>
   <span><%= @route.description %></span>
-  <%= form_tag save_climbing_log_path, class: 'route_comment' do %>
-  <%= label_tag 'suggested_rating_id', 'You would rate this route at:' %><br/>
-    <%= select_tag 'area_id', 
-      options_from_collection_for_select(@route.area.gym.ratings, "id", "name"),
-      :prompt => "Select a rating" %><br/>
-    <%= label_tag 'comment', 'Leave your comment or beta:' %><br/>
-    <%= text_area_tag 'comment', nil, :rows => 10, :cols => 25%><br/> 
+  <%= form_tag save_climbing_log_path, class: 'user_feedback' do %>
+    <%= hidden_field_tag 'route_id', @route.id %>
+    <%= label_tag 'suggested_rating_id', 'You would rate this route at:' %><br/>
+    <%= select_tag 'rating_id', 
+      options_from_collection_for_select(@route.area.gym.ratings, "id", "name", selected: @user_feedback ? @user_feedback.rating_id : @route.rating_id) %><br/>
+    <%= label_tag 'score', 'Please tell us how you like the route:' %><br/> 
+    <%= select_tag 'score',
+      options_for_select([["That sucked", 1], ["Awful", 2], ["Okay", 3], ["More like that please", 4], ["Sickest route ever", 5]], 
+      selected: @user_feedback ? @user_feedback.score : 3)%>  
+    <!-- <%= label_tag 'comment', 'Leave your comment or beta:' %><br/> -->
+    <!-- <%= text_area_tag 'comment', nil, :rows => 10, :cols => 25%><br/> -->
     <%= submit_tag 'submit' %>
   <% end %>
 </div>

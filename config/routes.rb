@@ -1,5 +1,7 @@
 Myboulderlog::Application.routes.draw do
   
+  resources :user_feedbacks
+
   controller :session do
     get  'login' => :new
     post 'login' => :create
