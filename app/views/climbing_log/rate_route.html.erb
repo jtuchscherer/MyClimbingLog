@@ -14,8 +14,10 @@
 
 <div>
   <h2><%= @route.title %></h2>
-  <span><%= @route.description %></span>
-  <%= form_tag save_climbing_log_path, class: 'user_feedback' do %>
+  <div><%= @route.description %></div>
+  <div>Average rating by climbers: <%= @average_rating.name %></div>
+  <div>And this is how they liked it: <%= @route.average_user_feedback_score %></div>
+  <%= form_tag save_custom_rating_climbing_log_path, class: 'user_feedback' do %>
     <%= hidden_field_tag 'route_id', @route.id %>
     <%= label_tag 'suggested_rating_id', 'You would rate this route at:' %><br/>
     <%= select_tag 'rating_id', 
@@ -24,8 +26,34 @@
     <%= select_tag 'score',
       options_for_select([["That sucked", 1], ["Awful", 2], ["Okay", 3], ["More like that please", 4], ["Sickest route ever", 5]], 
       selected: @user_feedback ? @user_feedback.score : 3)%>  
-    <!-- <%= label_tag 'comment', 'Leave your comment or beta:' %><br/> -->
-    <!-- <%= text_area_tag 'comment', nil, :rows => 10, :cols => 25%><br/> -->
+    <%= submit_tag 'submit' %>
+  <% end %>
+  
+<% @route.comments.each do |comment| %>
+<h3><%= comment.title %> - Comment by <%= comment.user ? comment.user.name : comment.ip_address %> from <%= comment.creation_date.strftime("%I:%M%p %m/%d/%Y") %></h3>
+<div><%= comment.content %></div>
+<% end %> 
+<hr>
+
+<% if @comment && @comment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+    <ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>  
+  
+  <span>Please leave a comment</span>
+  <%= form_tag save_comment_climbing_log_path, class: 'comment' do %>
+    <%= hidden_field_tag 'route_id', @route.id %>
+    <%= label_tag 'title', 'Title:' %><br/>
+    <%= text_field_tag 'title', @comment ? @comment.title : nil %><br/>
+    <%= label_tag 'content', 'What would you like to say:' %><br/> 
+    <%= text_area_tag 'content', @comment ? @comment.content : nil, :rows => 10, :cols => 25 %><br/>
     <%= submit_tag 'submit' %>
   <% end %>
 </div>

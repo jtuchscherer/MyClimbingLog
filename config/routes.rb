@@ -1,5 +1,7 @@
 Myboulderlog::Application.routes.draw do
   
+  resources :comments
+
   resources :user_feedbacks
 
   controller :session do
@@ -14,8 +16,9 @@ Myboulderlog::Application.routes.draw do
   match "climbing_log/select_area", as: 'area_climbing_log', :via => [:post]
   match "climbing_log/select_route", as: 'route_climbing_log', :via => [:post]
   match "climbing_log/rate_route", as: 'rate_climbing_log', :via => [:get]
-  post "climbing_log/save", as: 'save_climbing_log'
-
+  post "climbing_log/save_custom_rating", as: 'save_custom_rating_climbing_log'
+  post "climbing_log/save_comment", as: 'save_comment_climbing_log'
+  
   resources :ratings
 
   resources :areas
