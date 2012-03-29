@@ -18,7 +18,7 @@ class AreasControllerTest < ActionController::TestCase
 
   test "should create area" do
     assert_difference('Area.count') do
-      post :create, area: @area.attributes
+      post :create, area: { name: @area.name, gym_id: @area.gym, description: @area.description }
     end
 
     assert_redirected_to area_path(assigns(:area))
@@ -35,7 +35,7 @@ class AreasControllerTest < ActionController::TestCase
   end
 
   test "should update area" do
-    put :update, id: @area, area: @area.attributes
+    put :update, id: @area, area: { name: @area.name, gym_id: @area.gym, description: @area.description }
     assert_redirected_to area_path(assigns(:area))
   end
 

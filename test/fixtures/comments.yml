@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_id: 1
-  route_id: 1
+  user: one
+  route: one
   content: MyText
   title: MyString
   ip_address: MyString
 
 two:
-  user_id: 1
-  route_id: 1
+  user: two
+  route: two
   content: MyText
   title: MyString
   ip_address: MyString
