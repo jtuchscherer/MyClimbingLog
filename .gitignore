@@ -16,3 +16,6 @@
 
 # Ignore redcar files
 /.redcar/
+
+#Ignore coverage output for now
+/coverage/
